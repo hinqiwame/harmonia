@@ -1,6 +1,6 @@
 <div align="center">
   <img src="https://github.com/hinqiwame/harmonia/raw/main/src/icon_header.png" width="100" />
-  <h1>Harmonia Guitar Tuner 🎸</h1>
+  <h1>Harmonia 🎸</h1>
 
   <p><strong>Professional, accurate, and beautiful guitar tuner for desktop.</strong></p>
 
