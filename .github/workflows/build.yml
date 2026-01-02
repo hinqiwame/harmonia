@@ -29,6 +29,15 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Set Version from Tag
+        shell: bash
+        run: |
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            VERSION=${GITHUB_REF#refs/tags/v}
+            echo "Version from tag: $VERSION"
+            npm version $VERSION --no-git-tag-version --allow-same-version
+          fi
+
       - name: Build (Windows)
         if: matrix.os == 'windows-latest'
         run: npm run build:win
