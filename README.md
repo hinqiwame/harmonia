@@ -76,4 +76,4 @@ npm run build:linux
 
 ## 📄 License
 
-MIT © [hinqiwame](https://github.com/hinqiwame)
+UNLICENSE
