@@ -1,10 +1,13 @@
-# Harmonia Guitar Tuner 🎸
+<div align="center">
+  <img src="https://github.com/hinqiwame/harmonia/raw/main/src/icon_header.png" width="100" />
+  <h1>Harmonia Guitar Tuner 🎸</h1>
 
-**Professional, accurate, and beautiful guitar tuner for desktop.**
+  <p><strong>Professional, accurate, and beautiful guitar tuner for desktop.</strong></p>
 
-Harmonia is a modern, standalone guitar tuner application built with Electron. It features a sleek glassmorphic design, real-time pitch detection, and support for multiple popular tunings.
+  <p>Harmonia is a modern, standalone guitar tuner application built with Electron. It features a sleek glassmorphic design, real-time pitch detection, and support for multiple popular tunings.</p>
 
-![Harmonia UI](https://github.com/hinqiwame/harmonia/raw/main/src/screenshot.png)
+  <img src="https://github.com/hinqiwame/harmonia/raw/main/src/screenshot.png" width="600" />
+</div>
 
 ## ✨ Features
 
