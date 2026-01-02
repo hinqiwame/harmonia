@@ -155,6 +155,8 @@ nav {
     opacity: 0;
     /* Animated */
     animation: fadeInUp 0.8s 0.4s forwards;
+    justify-content: center;
+    /* Center buttons */
 }
 
 .cta-btn {
