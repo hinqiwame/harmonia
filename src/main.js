@@ -23,7 +23,7 @@ function createWindow() {
     });
 
     // Load the app
-    mainWindow.loadFile('index.html');
+    mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
     // Show window when ready to prevent flash
     mainWindow.once('ready-to-show', () => {
