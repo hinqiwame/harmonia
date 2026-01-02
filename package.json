@@ -37,21 +37,24 @@
             "x64"
           ]
         }
-      ]
+      ],
+      "artifactName": "Harmonia-v${version}.${ext}"
     },
     "mac": {
       "target": "dmg",
-      "category": "public.app-category.music"
+      "category": "public.app-category.music",
+      "artifactName": "Harmonia-v${version}.${ext}"
     },
     "linux": {
       "target": [
         "AppImage",
         "deb"
       ],
-      "category": "Audio"
+      "category": "Audio",
+      "artifactName": "Harmonia-v${version}.${ext}"
     },
     "portable": {
-      "artifactName": "Harmonia-GuitarTuner-${version}.exe"
+      "artifactName": "Harmonia-v${version}.exe"
     }
   }
 }
