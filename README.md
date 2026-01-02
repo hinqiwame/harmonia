@@ -5,7 +5,6 @@
 Harmonia is a modern, standalone guitar tuner application built with Electron. It features a sleek glassmorphic design, real-time pitch detection, and support for multiple popular tunings.
 
 ![Harmonia UI](https://github.com/hinqiwame/harmonia/raw/main/src/screenshot.png)
-*(Note: Add a screenshot of the app to your src folder and name it screenshot.png)*
 
 ## ✨ Features
 
