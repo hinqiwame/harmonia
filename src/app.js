@@ -1,8 +1,3 @@
-/**
- * Professional Guitar Tuner - Multi-Tuning Support
- * Desktop application with real-time pitch detection
- */
-
 // ============================================
 // TUNING DEFINITIONS
 // ============================================
