@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/hinqiwame/harmonia/raw/main/src/icon_header.png" width="100" />
+  <img src="https://github.com/hinqiwame/harmonia/raw/main/src/icon_header.png" width="300" />
   <h1>Harmonia 🎸</h1>
 
   <p><strong>Professional, accurate, and beautiful guitar tuner for desktop.</strong></p>
