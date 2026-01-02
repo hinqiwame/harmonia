@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Guitar Tuner - Multiple tunings with real-time pitch detection.">
+    <title>Harmonia - Guitar Tuner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Background Effects -->
+        <div class="bg-gradient"></div>
+        <div class="bg-grid"></div>
+
+        <!-- Custom Title Bar -->
+        <div class="title-bar">
+            <div class="drag-region"></div>
+            <div class="window-controls">
+                <button class="control-btn minimize" id="minBtn" title="Minimize">
+                    <svg viewBox="0 0 12 12">
+                        <rect width="10" height="1" x="1" y="5.5" fill="currentColor" />
+                    </svg>
+                </button>
+
+                <button class="control-btn close" id="closeBtn" title="Close">
+                    <svg viewBox="0 0 12 12">
+                        <path d="M1.5 1.5l9 9m0-9l-9 9" stroke="currentColor" stroke-width="1.2" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <!-- Ghost element for centering balance -->
+            <div class="header-spacer"></div>
+
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3" />
+                    <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+                    <circle cx="12" cy="12" r="10" stroke-dasharray="4 2" />
+                </svg>
+                <span class="logo-text">Harmonia</span>
+            </div>
+
+            <!-- Version Badge -->
+            <div class="version-badge">v1.0</div>
+        </header>
+
+        <!-- Controls Bar -->
+        <!-- Controls Bar -->
+        <div class="controls-bar">
+            <!-- Tuning Selector -->
+            <div class="custom-select-wrapper tuning-wrapper">
+                <div class="custom-select" id="tuningSelectCustom">
+                    <div class="select-trigger">
+                        <span>E Standard</span>
+                        <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </div>
+                    <div class="select-options">
+                        <div class="select-option selected" data-value="e-standard">E Standard</div>
+                        <div class="select-option" data-value="b-standard">B Standard</div>
+                        <div class="select-option" data-value="d-standard">D Standard</div>
+                        <div class="select-option" data-value="c-standard">C Standard</div>
+                        <div class="select-option" data-value="half-step-down">Eb Standard</div>
+                        <div class="select-option" data-value="drop-d">Drop D</div>
+                        <div class="select-option" data-value="drop-c">Drop C</div>
+                        <div class="select-option" data-value="drop-b">Drop B</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Selector -->
+            <div class="custom-select-wrapper input-wrapper">
+                <div class="custom-select" id="micSelectCustom">
+                    <div class="select-trigger">
+                        <span>Default Input</span>
+                        <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </div>
+                    <div class="select-options">
+                        <!-- Options populated by JS -->
+                        <div class="select-option selected" data-value="">Default Input</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Tuner -->
+        <main class="tuner-main">
+            <!-- Start Button -->
+            <button class="start-btn" id="startBtn">
+                <svg class="mic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                    <line x1="12" y1="19" x2="12" y2="23" />
+                    <line x1="8" y1="23" x2="16" y2="23" />
+                </svg>
+                <span class="btn-text">Start Tuning</span>
+            </button>
+
+            <!-- Status Indicator -->
+            <div class="status-bar">
+                <div class="status-dot"></div>
+                <span class="status-text">Ready to tune</span>
+            </div>
+
+            <!-- Tuner Display -->
+            <div class="tuner-card">
+                <!-- Note Display -->
+                <div class="note-display">
+                    <span class="note-letter" id="noteLetter">-</span>
+                    <span class="note-octave" id="noteOctave"></span>
+                </div>
+
+                <!-- Tuning Gauge -->
+                <div class="gauge-container">
+                    <div class="gauge-background">
+                        <div class="gauge-marks">
+                            <span class="mark mark-left">♭</span>
+                            <span class="mark mark-center">●</span>
+                            <span class="mark mark-right">♯</span>
+                        </div>
+                        <div class="gauge-scale">
+                            <div class="scale-segment flat"></div>
+                            <div class="scale-segment in-tune"></div>
+                            <div class="scale-segment sharp"></div>
+                        </div>
+                        <div class="gauge-needle" id="gaugeNeedle">
+                            <div class="needle-line"></div>
+                            <div class="needle-dot"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cents Display -->
+                <div class="cents-display">
+                    <span class="cents-value" id="centsValue">0</span>
+                    <span class="cents-label">cents</span>
+                </div>
+
+                <!-- Frequency Display -->
+                <div class="frequency-display">
+                    <span class="freq-value" id="freqValue">---</span>
+                    <span class="freq-unit">Hz</span>
+                </div>
+
+                <!-- Tuning Direction -->
+                <div class="tuning-direction" id="tuningDirection">
+                    <div class="direction-arrow up" id="arrowUp">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <path d="M12 19V5M5 12l7-7 7 7" />
+                        </svg>
+                        <span>Tune Up</span>
+                    </div>
+                    <div class="direction-indicator in-tune" id="inTuneIndicator">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                        <span>In Tune!</span>
+                    </div>
+                    <div class="direction-arrow down" id="arrowDown">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <path d="M12 5v14M5 12l7 7 7-7" />
+                        </svg>
+                        <span>Tune Down</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- String Selector -->
+            <div class="string-selector">
+                <div class="string-label">Detected String</div>
+                <div class="strings-container">
+                    <button class="string-btn" data-string="6" data-note="E2">
+                        <span class="string-number">6</span>
+                        <span class="string-note">E2</span>
+                        <span class="string-freq">82 Hz</span>
+                    </button>
+                    <button class="string-btn" data-string="5" data-note="A2">
+                        <span class="string-number">5</span>
+                        <span class="string-note">A2</span>
+                        <span class="string-freq">110 Hz</span>
+                    </button>
+                    <button class="string-btn" data-string="4" data-note="D3">
+                        <span class="string-number">4</span>
+                        <span class="string-note">D3</span>
+                        <span class="string-freq">147 Hz</span>
+                    </button>
+                    <button class="string-btn" data-string="3" data-note="G3">
+                        <span class="string-number">3</span>
+                        <span class="string-note">G3</span>
+                        <span class="string-freq">196 Hz</span>
+                    </button>
+                    <button class="string-btn" data-string="2" data-note="B3">
+                        <span class="string-number">2</span>
+                        <span class="string-note">B3</span>
+                        <span class="string-freq">247 Hz</span>
+                    </button>
+                    <button class="string-btn" data-string="1" data-note="E4">
+                        <span class="string-number">1</span>
+                        <span class="string-note">E4</span>
+                        <span class="string-freq">330 Hz</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Harmonia v1.0 • Created by hinqiwame (Vadim)</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
